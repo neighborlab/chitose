@@ -23,12 +23,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/semantic.min.css",
+              "node_modules/semantic-ui/dist/semantic.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "src/jquery-3.4.1.min.js",
-              "src/semantic.min.css"
             ]
           },
           "configurations": {
