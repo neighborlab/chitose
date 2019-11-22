@@ -28,7 +28,7 @@ export class LoggerService {
     {
       if( 0 == args.length)
       {
-        console.error();
+        console.error("-");
       }
       else if( 1 == args.length)
       {
@@ -49,7 +49,7 @@ export class LoggerService {
     {
       if( 0 == args.length)
       {
-        console.info();
+        console.info("-");
       }
       else if( 1 == args.length)
       {
@@ -71,7 +71,7 @@ export class LoggerService {
     {
       if( 0 == args.length)
       {
-        console.log();
+        console.log("-");
       }
       else if( 1 == args.length)
       {
@@ -93,7 +93,7 @@ export class LoggerService {
     {
       if( 0 == args.length)
       {
-        console.trace();
+        console.trace("-");
       }
       else if( 1 == args.length)
       {
