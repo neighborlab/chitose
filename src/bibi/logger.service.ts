@@ -10,7 +10,7 @@ export class LoggerService {
   /**
    * 出力ログレベル
    */
-  private level:Loglevel = Loglevel.info;
+  private level:Loglevel = Loglevel.trace;
   
   /**
    * コンストラクタ
@@ -24,10 +24,19 @@ export class LoggerService {
    */
   public error(...args: string[])
   {
-    if(this.level <= Loglevel.error)
+    if(this.level >= Loglevel.error)
     {
-      console.error(args);
-      console.trace();
+      if( 0 == args.length)
+      {
+        console.error();
+      }
+      else if( 1 == args.length)
+      {
+        console.error(args[0]);
+      }else
+      {
+        console.error(args);
+      }
     }
   }
 
@@ -36,9 +45,20 @@ export class LoggerService {
    */
   public info(...args: string[]):void
   {
-    if(this.level <= Loglevel.info)
+    if(this.level >= Loglevel.info)
     {
-      console.info(args);
+      if( 0 == args.length)
+      {
+        console.info();
+      }
+      else if( 1 == args.length)
+      {
+        console.info(args[0]);
+      }
+      else
+      {
+        console.info(args);
+      }
     }
   }
 
@@ -47,9 +67,42 @@ export class LoggerService {
    */
   public debug(...args: string[]):void
   {
-    if(this.level <= Loglevel.debug)
+    if(this.level >= Loglevel.debug)
     {
-      console.log(args);
+      if( 0 == args.length)
+      {
+        console.log();
+      }
+      else if( 1 == args.length)
+      {
+        console.log(args[0]);
+      }
+      else
+      {
+        console.log(args);
+      }
+    }
+  }
+
+  /**
+   * トレースログを出力
+   */
+  public trace(...args: string[]):void
+  {
+    if(this.level >= Loglevel.trace)
+    {
+      if( 0 == args.length)
+      {
+        console.trace();
+      }
+      else if( 1 == args.length)
+      {
+        console.trace(args[0]);
+      }
+      else
+      {
+        console.trace(args);
+      }
     }
   }
 
@@ -59,7 +112,7 @@ export class LoggerService {
    */
   public timerStart(label:string)
   {
-    if(this.level <= Loglevel.info)
+    if(this.level >= Loglevel.info)
     {
       console.time(label);
     }
@@ -71,7 +124,7 @@ export class LoggerService {
    */
   public timerStop(label:string)
   {
-    if(this.level <= Loglevel.info)
+    if(this.level >= Loglevel.info)
     {
       console.timeEnd(label);
     }

@@ -10,6 +10,13 @@ export class AppComponent  {
   name = 'Angular';
   constructor( public loggerService: LoggerService )
   {
-    loggerService.info("sssssss");
+    loggerService.timerStart("TIME");
+    loggerService.error("EEEEE");
+    loggerService.info();
+    loggerService.info("IIIII");
+    loggerService.info("IIIII","JJJJJ","KKKKK");
+    loggerService.debug("DDDDD");
+    loggerService.trace("TTTTT");
+    loggerService.timerStop("TIME");
   }
 }
