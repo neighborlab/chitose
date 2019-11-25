@@ -1,12 +1,12 @@
-    body {
-      background-color: #DADADA;
-    }
-    body > .grid {
-      height: 100%;
-    }
-    .image {
-      margin-top: -100px;
-    }
-    .column {
-      max-width: 450px;
-    }
+:host {
+  display: block;
+  height:100vh;
+}
+
+.column {
+  max-width: 450px;
+}
+
+.grid {
+  height: 100%;
+}
