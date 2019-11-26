@@ -1,12 +1,9 @@
-:host {
-  display: block;
-  height:100vh;
+.grid {
+  height: 100%;
 }
-
 .column {
   max-width: 450px;
 }
-
-.grid {
-  height: 100%;
+.large.text {
+   font-size: 3rem;
 }
