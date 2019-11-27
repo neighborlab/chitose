@@ -1,23 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app.routing.module';
 import { ShikotsukoModule } from '../shikotsuko/shikotsuko.module';
 import { BibiModule } from '../bibi/bibi.module';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
-  imports:      [
-    AppRoutingModule,
+  imports:[
     BrowserModule,
     FormsModule,
     BibiModule.forRoot(),
-    ShikotsukoModule
-     ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ],
+    ShikotsukoModule,
+    RouterModule.forRoot([
+      { path: 'login', component: LoginComponent },
+      { path: 'page', component: PageComponent },
+      { path: '**', redirectTo: 'login' }
+    ]),
+  ],
+  declarations:[
+    AppComponent,
+    LoginComponent,
+    PageComponent
+  ],
+  bootstrap:[
+    AppComponent
+  ],
 })
 
 /**
