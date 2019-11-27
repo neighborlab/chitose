@@ -7,7 +7,6 @@ import { ShikotsukoModule } from '../shikotsuko/shikotsuko.module';
 import { BibiModule } from '../bibi/bibi.module';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 
 @NgModule({
   imports:      [
@@ -17,7 +16,7 @@ import { HelloComponent } from './hello.component';
     BibiModule.forRoot(),
     ShikotsukoModule
      ],
-  declarations: [ AppComponent, HelloComponent ],
+  declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
 })
 export class AppModule { }
