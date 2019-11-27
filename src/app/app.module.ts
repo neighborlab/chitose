@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { ShikotsukoModule } from '../shikotsuko/shikotsuko.module';
@@ -14,6 +14,7 @@ import { PageComponent } from './page/page.component';
   imports:[
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BibiModule.forRoot(),
     ShikotsukoModule,
     RouterModule.forRoot([

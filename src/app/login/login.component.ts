@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoggerService } from '../../bibi/logger.service';
 
 @Component({
@@ -11,28 +12,37 @@ import { LoggerService } from '../../bibi/logger.service';
  */
 export class LoginComponent implements OnInit {
 
-  /**
-   * エラーメッセージ
-   */
-  public message = '';
+  form = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+    ])
+   });
 
   /**
    * コンストラクタ
    * @param loggerService ロガー
    */
-  constructor( private loggerService: LoggerService ){}
+  constructor(
+     private loggerService: LoggerService,
+  ){}
 
   /**
    * 初期化
    */
   ngOnInit() {
+    this.loggerService.info("sddddd");
   }
 
   /**
    * ログイン
    */
-  clickLogin() {
-    this.loggerService.info("xxxxxxxxxxxxxxxxxx");
-    this.message = 'You are my hero!';
+  onSubmit() {
+    this.loggerService.info(JSON.stringify(this.form.value));
+    alert(JSON.stringify(this.form.value));
   }
 }
