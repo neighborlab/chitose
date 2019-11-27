@@ -12,20 +12,30 @@
         </h2>    
 
         <div class="field">
-          <div class="ui fluid input">
-            <input type="text" placeholder="E-mail" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
+          <div class="ui fluid input error" [ngClass]="{'error':form.get('email').touched && form.get('email').invalid}">
+            <input type="text" placeholder="E-mail" formControlName="email" />
           </div>
           <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="invalid-feedback">
-            <div *ngIf="form.get('email').errors.required">Email Name is required</div>
+            <div class="ui pointing label" *ngIf="form.get('email').errors.required">Email Name is required</div>
             <div *ngIf="form.get('email').errors.email">Email must be a valid email Address</div>
           </div>
         </div>
 
         <div class="field">
-          <div class="ui fluid input">
-            <input type="password" placeholder="Password" class="form-control"  formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+          <div class="ui input error">
+            <input type="password" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
           </div>
-          <div *ngIf="form.get('password').touched && form.get('password').invalid"  class="invalid-feedback">
+          <div *ngIf="form.get('password').touched && form.get('password').invalid" class="">
+            <div *ngIf="form.get('password').errors.required">Password is required</div>
+            <div *ngIf="form.get('password').errors.minlength">Password  must be a letaset 6 charector</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui input error">
+            <input type="moj" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+          </div>
+          <div *ngIf="form.get('password').touched && form.get('password').invalid" class="">
             <div *ngIf="form.get('password').errors.required">Password is required</div>
             <div *ngIf="form.get('password').errors.minlength">Password  must be a letaset 6 charector</div>
           </div>

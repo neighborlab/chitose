@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
    * 初期化
    */
   ngOnInit() {
-    this.loggerService.info("sddddd");
   }
 
   /**
@@ -43,6 +42,5 @@ export class LoginComponent implements OnInit {
    */
   onSubmit() {
     this.loggerService.info(JSON.stringify(this.form.value));
-    alert(JSON.stringify(this.form.value));
   }
 }
