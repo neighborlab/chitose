@@ -6,8 +6,16 @@ import { LoggerService } from '../bibi/logger.service';
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
+
+/**
+ * アプリケーションコンポーネント
+ */
 export class AppComponent  {
   
+  /**
+   * コンストラクタ
+   * @param loggerService ロガー
+   */
   constructor( public loggerService: LoggerService )
   {
   }

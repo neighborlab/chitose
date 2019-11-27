@@ -19,4 +19,8 @@ import { AppComponent } from './app.component';
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
 })
+
+/**
+ * アプリケーションモジュール
+ */
 export class AppModule { }

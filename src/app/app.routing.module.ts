@@ -21,6 +21,9 @@ import { PageComponent } from './page/page.component';
   providers: [],
 
 })
+/**
+ * ルーティング
+ */
 export class AppRoutingModule {}
 
 

@@ -21,6 +21,7 @@ export class LoggerService {
 
   /**
    * エラー。予期しないその他の実行時エラー。コンソール等に即時出力することを想定 
+   * @params args 出力メッセージ
    */
   public error(...args: string[])
   {
@@ -42,6 +43,7 @@ export class LoggerService {
 
   /**
    * 情報。実行時の何らかの注目すべき事象（開始や終了など）。コンソール等に即時出力することを想定。従ってメッセージ内容は簡潔に止めるべき 
+   * @params args 出力メッセージ
    */
   public info(...args: string[]):void
   {
@@ -64,6 +66,7 @@ export class LoggerService {
 
   /**
    * デバッグ用の情報。システムの動作状況に関する詳細な情報。コンソールではなくログ上にだけ出力することを想定 
+   * @params args 出力メッセージ
    */
   public debug(...args: string[]):void
   {
@@ -86,6 +89,7 @@ export class LoggerService {
 
   /**
    * トレースログを出力
+   * @params args 出力メッセージ
    */
   public trace(...args: string[]):void
   {
@@ -109,6 +113,7 @@ export class LoggerService {
   /**
    * タイマー開始
    * INFOログで動作します
+   * @params label タイマーラベル
    */
   public timerStart(label:string)
   {
@@ -121,6 +126,7 @@ export class LoggerService {
   /**
    * タイマー終了
    * INFOログで動作します
+   * @params label タイマーラベル
    */
   public timerStop(label:string)
   {
