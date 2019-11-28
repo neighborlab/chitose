@@ -1,9 +1,8 @@
-<div class="ui middle aligned center aligned grid">
+<div class="ui middle aligned centered grid">
   <div class="column">
-    <form name="form" class="ui form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
-      <div class="ui segment">
+    <form name="form" class="ui form segment" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
 
-        <h2 class="ui icon header blue">
+        <h2 class="ui icon header blue middle aligned">
           <i class="fas fa-spell-check large text"></i>
           <div class="content">
             MyDictionary
@@ -12,38 +11,33 @@
         </h2>    
 
         <div class="field">
-          <div class="ui fluid input error" [ngClass]="{'error':form.get('email').touched && form.get('email').invalid}">
-            <input type="text" placeholder="E-mail" formControlName="email" />
-          </div>
-          <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="invalid-feedback">
-            <div class="ui pointing label" *ngIf="form.get('email').errors.required">Email Name is required</div>
-            <div *ngIf="form.get('email').errors.email">Email must be a valid email Address</div>
+          <label>メールアドレス</label>
+          <div class="ui input">
+            <input type="text" placeholder="メールアドレス" formControlName="email" />
           </div>
         </div>
 
         <div class="field">
-          <div class="ui input error">
-            <input type="password" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+          <label>パスワード</label>
+          <div class="ui input" >
+            <input type="password" placeholder="パスワード" formControlName="password"/>
           </div>
           <div *ngIf="form.get('password').touched && form.get('password').invalid" class="">
-            <div *ngIf="form.get('password').errors.required">Password is required</div>
-            <div *ngIf="form.get('password').errors.minlength">Password  must be a letaset 6 charector</div>
           </div>
         </div>
 
-        <div class="field">
-          <div class="ui input error">
-            <input type="moj" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
-          </div>
-          <div *ngIf="form.get('password').touched && form.get('password').invalid" class="">
-            <div *ngIf="form.get('password').errors.required">Password is required</div>
-            <div *ngIf="form.get('password').errors.minlength">Password  must be a letaset 6 charector</div>
-          </div>
+        <div class="ui negative message" *ngIf="( form.get('email').touched && form.get('email').invalid ) || ( form.get('password').touched && form.get('password').invalid )">
+          <ul class="list" *ngIf="form.get('email').touched && form.get('email').invalid" >
+            <li *ngIf="form.get('email').errors.required" >メールアドレスを入力してください</li>
+            <li *ngIf="form.get('email').errors.email" >メールアドレスの形式が正しくありません</li>
+          </ul>
+          <ul class="list" *ngIf="form.get('password').touched && form.get('password').invalid">
+            <li *ngIf="form.get('password').errors.required">パスワードを入力してください</li>
+            <li *ngIf="form.get('password').errors.minlength">パスワードは６文字以上入力してください</li>
+          </ul>
         </div>
+        <button type="submit" class="ui button fluid large blue" [disabled]="!form.valid">ログイン</button>
 
-          <button type="submit" class="ui button fluid large blue" [disabled]="!form.valid">Register</button>
-
-      </div>
     </form>
     <div class="ui message">
       New to us? <a href="/page">Sign Up</a>
